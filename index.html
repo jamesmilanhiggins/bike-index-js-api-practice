@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="build/css/styles.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="build/js/vendor.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <title>Bike Map</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Bike Map</h1>
+      </div>
+      <form id="bike-info">
+        <label for="city">City Where Bike was Stolen</label>
+        <input type="text" name="city" id="city">
+        <label for="brand">Brand of Bike</label>
+        <input type="text" name="brand" id="brand">
+        <label for="color">Color of Bike</label>
+        <input type="text" name="color" id="color">
+        <button type="submit" class="btn">Click Here</button>
+      </form>
+      <div class="output">
+        <p id="output-city"></p>
+        <p id="output-brand"></p>
+        <p id="output-color"></p>
+        <ul>
+
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
