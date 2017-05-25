@@ -34,11 +34,23 @@ Bike.prototype.bikeMap = function(ids, coordinates) {
   ids.forEach(function(id){
     $.get('https://bikeindex.org:443/api/v3/bikes/' + id)
     .then(function(id_response){
-      new google.maps.Marker({
+
+      var marker = new google.maps.Marker({
         position: {lat: id_response.bike.stolen_record.latitude, lng:id_response.bike.stolen_record.longitude},
         map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
         icon: "images/a1.png"
+
+
       });
+      marker.addListener('click', toggleBounce);
+
+      function toggleBounce() {
+        if (marker.getAnimation() === null) {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+          }
+      }
     });
   });
 };

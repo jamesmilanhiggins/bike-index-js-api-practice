@@ -16,7 +16,11 @@ var cityCoordinate = function(cityCoord){
 
 
 $(document).ready(function(){
+
+
+
   var newBike = new Bike();
+
   $('#bike-info').submit(function(event){
     event.preventDefault();
     $('.output').text("");
@@ -26,6 +30,6 @@ $(document).ready(function(){
     newBike.getBike(city, brand, distance, bikeInfo, cityCoordinate);
   });
   $('#add-map').click(function(){
-      newBike.bikeMap(ids, coordinates);
+    newBike.bikeMap(ids, coordinates);
   });
 });
