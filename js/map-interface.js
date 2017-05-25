@@ -1,15 +1,19 @@
 var apiKey = require('./../.env').apiKey;
+var Bike = require('./../js/bike.js').bikeModule;
 
 $(document).ready(function() {
+
+
   var pdx = {lat: 45.5206297, lng: -122.6774804};
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 20,
+    zoom: 18,
     center: pdx
   });
+
   var marker = new google.maps.Marker({
     position: pdx,
     map: map,
-    icon: "images/a1.png"
+    icon: "images/m1.png"
   });
   // styles: [
   //   {

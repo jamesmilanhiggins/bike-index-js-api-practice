@@ -10,11 +10,6 @@ var bikeInfo = function(stolen_location, title, frame_colors, id, bikes) {
   });
 };
 
-var locationInfo = function(latitude, longitude, ids) {
-  // ids.forEach(function(id) {
-  //   $('.output').append("<li>" + id.stolen_record.latitude + " " + id.stolen_record.latitude + "</li>");
-  // });
-};
 
 $(document).ready(function(){
   var newBike = new Bike();
@@ -28,6 +23,6 @@ $(document).ready(function(){
   });
   $('#add-map').click(function(){
 
-      newBike.bikeId(ids, locationInfo);
+      newBike.bikeMap(ids);
   });
 });

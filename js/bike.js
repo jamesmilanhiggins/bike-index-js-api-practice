@@ -4,7 +4,8 @@ function Bike() {
 }
 
 Bike.prototype.getBike = function(city, brand, distance, bikeInfo) {
-  $.get('https://bikeindex.org:443/api/v3/search?page=1&per_page=50&manufacturer=' + brand + '&location=' + city + '&distance=' + distance + '&stolenness=proximity')
+  // $.get()
+  $.get('https://bikeindex.org:443/api/v3/search?page=1&per_page=100&manufacturer=' + brand + '&location=' + city + '&distance=' + distance + '&stolenness=proximity')
   .then(function(response) {
     bikeInfo(response.bikes.stolen_location, response.bikes.title, response.bikes.frame_colors, response.bikes.id, response.bikes);
   })
@@ -13,31 +14,23 @@ Bike.prototype.getBike = function(city, brand, distance, bikeInfo) {
   });
 };
 
-Bike.prototype.bikeId = function(ids, locationInfo) {
+Bike.prototype.bikeMap = function(ids) {
 
-  lat_array = [];
-  lon_array = [];
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: {lat: 45.5206297, lng: -122.6774804}
+  });
 
   ids.forEach(function(id){
-
-
     $.get('https://bikeindex.org:443/api/v3/bikes/' + id)
-
-
     .then(function(id_response){
-      var lat = id_response.bike.stolen_record.latitude;
-      var lon = id_response.bike.stolen_record.longitude;
-      lat_array.push(lat);
-      lon_array.push(lon);
+      // map { zoom: 14, center: {lat: id_response.bike.stolen_record.latitude, lng: id_response.bike.stolen_record.longitude}; }
 
-      console.log(lat_array,lon_array);
-      locationInfo(lat_array, lon_array, id_response.bikes);
-
-
-      // console.log(id_response.bike.stolen_record.latitude);
-    })
-    .fail(function(error){
-      $('.output').text(error.responseJSON.message);
+      new google.maps.Marker({
+        position: {lat: id_response.bike.stolen_record.latitude, lng:id_response.bike.stolen_record.longitude},
+        map: map,
+        icon: "images/a1.png"
+      });
     });
   });
 };
