@@ -1,6 +1,6 @@
-# _Bike Index Google Maps_
+# _Bike Index With Google Maps_
 
-#### _This lets users see stolen bikes in their inputted city, Thursday, May 25, 2017_
+#### _This app lets users see stolen bikes in their inputted city, Thursday, May 25, 2017_
 
 #### By _**Nicole Santamaria, and James Higgins**_
 
@@ -22,7 +22,7 @@ $ git clone https://github.com/jamesmilanhiggins/bike-index-js-api-practice
 $ cd bike-index-js-api-practice
 $ npm install
 $ bower install
-$ touch .env [exports.apiKey = "Add-your-api-key-here";]
+$ touch .env [ add the following to this file: exports.apiKey = "Add-your-api-key-here";]
 $ atom .
 ```
 
@@ -37,8 +37,8 @@ $ gulp serve
 
 ## Known Bugs
 
-_You have to refresh to submit a new city_
-_Note: If your API request is not successful and you get the following error in the console: Origin is not allowed by Access-Control-Allow-Origin., try installing the Allow-Control-Allow-Origin:_ [Chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)*
+* _You have to refresh to submit a new city_
+* _Note: If your API request is not successful and you get the following error in the console: Origin is not allowed by Access-Control-Allow-Origin., try installing the Allow-Control-Allow-Origin:_ [Chrome extension](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)*
 
 
 ## Support and contact details
@@ -55,8 +55,8 @@ _Please contact Nicole Santamaria at NicoleRSantamaria@gmail.com or James Higgin
 
 ### API
 
-*API from [Bike Index](https://bikeindex.org/)*
-*API from [Google Maps](https://developers.google.com/maps/documentation/javascript/)*
+* API from [Bike Index](https://bikeindex.org/)
+* API from [Google Maps](https://developers.google.com/maps/documentation/javascript/)
 
 ### License
 
@@ -66,4 +66,5 @@ Copyright (c) 2017 **_Nicole Santamaria and James Higgins_**
 
 
 
-![Home page](/images/home-screenshot.png)
+![Portland page](/images/home-screenshot.png)
+![Seattle page](/images/Seattle.png)
