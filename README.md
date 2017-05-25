@@ -8,7 +8,6 @@
 
 _This app calls a bike api and displays stolen bikes based off the user input. Then, it shows the stolen bikes on google maps, based off the stolen location_
 
-
 ## Setup/Installation Requirements
 
 ### Access Atom Files

@@ -8,6 +8,9 @@ Bike.prototype.getBike = function(city, brand, distance, bikeInfo, cityCoordinat
   .then(function(response) {
     bikeInfo(response.bikes.stolen_location, response.bikes.title, response.bikes.frame_colors, response.bikes.id, response.bikes);
   });
+  // .fail(function(error){
+  //   $('.output').text(error.responseJSON.message);
+  // });
   $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + city)
   .then(function(response1){
     var cityCoord = {lat: response1.results[0].geometry.location.lat, lng: response1.results[0].geometry.location.lng};
@@ -16,7 +19,36 @@ Bike.prototype.getBike = function(city, brand, distance, bikeInfo, cityCoordinat
 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 14,
-      center: cityCoord
+      center: cityCoord,
+      styles: [
+        {
+          stylers: [
+            { hue: "#00ff6f" },
+            { saturation: -50 }
+          ]
+        }, {
+          featureType: "road",
+          elementType: "geometry",
+          stylers: [
+            { lightness: 100 },
+            { visibility: "simplified" }
+          ]
+        }, {
+          featureType: "transit",
+          elementType: "geometry",
+          stylers: [
+            { hue: "#76FF92" },
+            { saturation: +80 }
+          ]
+        }, {
+          featureType: "transit",
+          elementType: "labels",
+          stylers: [
+            { hue: "#ff0066" },
+            { saturation: +80 }
+          ]
+        }
+      ]
     });
   });
   // .fail(function(error){
@@ -28,7 +60,36 @@ Bike.prototype.bikeMap = function(ids, coordinates) {
   var cityCoordinates = coordinates[0];
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
-    center: cityCoordinates
+    center: cityCoordinates,
+    styles: [
+      {
+        stylers: [
+          { hue: "#00ff6f" },
+          { saturation: -50 }
+        ]
+      }, {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { lightness: 100 },
+          { visibility: "simplified" }
+        ]
+      }, {
+        featureType: "transit",
+        elementType: "geometry",
+        stylers: [
+          { hue: "#76FF92" },
+          { saturation: +80 }
+        ]
+      }, {
+        featureType: "transit",
+        elementType: "labels",
+        stylers: [
+          { hue: "#ff0066" },
+          { saturation: +80 }
+        ]
+      }
+    ]
   });
 
   ids.forEach(function(id){
